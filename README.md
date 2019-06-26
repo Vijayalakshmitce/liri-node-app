@@ -20,7 +20,9 @@ In this project, you will make LIRI. LIRI is like iPhone's SIRI. However, while 
 
 Show the list of choice user to chooose..list is accuquired by in inquirer API.
 
-![screenshot1](../liri-node-app/assests/images/first)
+![screenshot1](../liri-node-app/assests/images/first.jpg)
+
+
 
 
 
