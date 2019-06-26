@@ -19,6 +19,7 @@ In this project, you will make LIRI. LIRI is like iPhone's SIRI. However, while 
    
    
    For details here is the video:
+   assests/images/jun26(video file)
 
 
 Screenshot1:Show the list of choice user to chooose..list is accuquired by in inquirer API.
