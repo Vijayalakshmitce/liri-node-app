@@ -29,6 +29,8 @@ Show the list of choice user to chooose..list is accuquired by in inquirer API.
 
 ![moviedefault](https://user-images.githubusercontent.com/49068436/60192206-7f534c00-9803-11e9-8b02-f22eec6a728a.JPG)
 
+![do1](https://user-images.githubusercontent.com/49068436/60192344-b164ae00-9803-11e9-9de1-4a4ef0a145f9.JPG)
+
 
 
 
