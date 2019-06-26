@@ -20,7 +20,7 @@ In this project, you will make LIRI. LIRI is like iPhone's SIRI. However, while 
    
    For details here is the video:
    
-   * [liri app](https://drive.google.com/file/d/1Mb0cBhlMLNYkiy_j4vozcBYTup86llwC/view?usp=sharing)
+   * [liri app video](https://drive.google.com/file/d/1Mb0cBhlMLNYkiy_j4vozcBYTup86llwC/view?usp=sharing)
 
 
 
