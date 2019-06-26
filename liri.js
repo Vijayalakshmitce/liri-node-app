@@ -98,7 +98,7 @@ else if (result.userInput === "spotify-this-song"){
          console.log("Preview link: "+previewLink);
          console.log("******************************************************");
           }
-         });
+         })
         })
 }
 ///spotify if ends here..
@@ -156,7 +156,9 @@ else if(result.userInput === "movie-this") {
         })
 
     
-    })
+    }).catch(function(err){
+      console.log("No records found");
+              })
 }
 //movie this end here
 //do-what-it-says if starts
@@ -172,7 +174,7 @@ else if(result.userInput === "do-what-it-says") {
         // Then split it by commas (to make it more readable)
         var dataArr = data.split(",");
       
-        // We will then re-display the content as an array for later use.
+        // spotify if statement start here
       if (dataArr[0] === "spotify-this-song"){
 
         spotify.search({ type: 'track', query: dataArr[1] }, function(err,response) {
@@ -193,10 +195,64 @@ else if(result.userInput === "do-what-it-says") {
            }
         })
       }
+      //spotify if statement ends here
+      //movie-this else if statement start here
+      else if (dataArr[0] === "movie-this"){
+        axios.get("http://www.omdbapi.com/?t="+dataArr[1]+"&y=&r=&plot=short&apikey=7cb1822e").then(
+        function(responseMovie){
+          var movieTitle = responseMovie.data.Title;
+    var movieReleaseYear = responseMovie.data.Released;
+    var movieRating = responseMovie.data.imdbRating;
+    var rottenRating = responseMovie.data.Ratings[1].Value;
+    var countryMovieProduced = responseMovie.data.Country;
+    var movieLanguage = responseMovie.data.Language;
+    var moviePlot = responseMovie.data.Plot;
+    var movieActors = responseMovie.data.Actors;
+    console.log("*************************************************");
+        console.log("Movie Title: " +movieTitle);
+        console.log("Movie Released Year (DD M YYYY): " +movieReleaseYear);
+        console.log("Movie IMDB Rating: " +movieRating);
+        console.log("Movie RottenTomato Rating (%): "+rottenRating);
+        console.log("Country where movie produced: "+countryMovieProduced);
+        console.log("Movie Language: "+movieLanguage);
+        console.log("Movie Summary: "+moviePlot);
+        console.log("Cast crew: "+movieActors);
+        console.log("*************************************************")
+
+        if (movieTitle === "Mr. Nobody"){
+            console.log("If you haven't watched 'Mr. Nobody,' then you should: <http://www.imdb.com/title/tt0485947/>");
+            console.log("It's on Netflix!");
+        }
+})
+}
+///else if movie-this statement ends here
+//concert-this else if statement start here
+
+else if (dataArr[0] === "concert-this"){
+  
+   bandName = dataArr[1].replace(/"/g, '');
+  axios.get("https://rest.bandsintown.com/artists/"+bandName+"/events?app_id=codingbootcamp").then(
+    function (response) {
+for(var i=0; i < response.data.length; i++)  {         
+console.log("*******************************************");
+console.log("Band Name: "+bandName);
+var name =response.data[i].venue.name;
+var dateTime =moment(response.data[i].datetime).format("MM/DD/YYYY");
+console.log("Band Venu Name: "+name);
+console.log("Band Venu Date Time: " +dateTime);
+console.log("Band Venu Location: " +JSON.stringify(response.data[i].venue.city)+","+JSON.stringify(response.data[i].venue.region)+","+JSON.stringify(response.data[i].venue.country));
+console.log("*******************************************");  
+}
+})
+}
+////concert-this else if statement end here
+
+
+
       });
       
 
 
 }
 ///do-what-it-says if end
-  });
+  })
